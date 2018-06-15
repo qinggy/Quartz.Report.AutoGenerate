@@ -1,0 +1,16 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+# IDEs and editors
+.vs/
+
+obj/
+bin/
+
+packages/
+*.log
+*.2017-05-18
+/KB.WebApi/App_Data/
+/Social.WebApi/App_Data/Logs.log.*
+/.axoCover

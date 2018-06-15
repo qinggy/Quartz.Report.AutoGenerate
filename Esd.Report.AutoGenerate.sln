@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esd.Report.AutoGenerate.Form", "Esd.Report.AutoGenerate\Esd.Report.AutoGenerate.Form.csproj", "{589D2860-2FF7-4388-80D8-726C22C0CDAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esd.Report.AutoGenerate.Service", "Esd.Report.AutoGenerate.Service\Esd.Report.AutoGenerate.Service.csproj", "{37B22288-4498-459F-B331-A7A3AB1747FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{589D2860-2FF7-4388-80D8-726C22C0CDAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{589D2860-2FF7-4388-80D8-726C22C0CDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{589D2860-2FF7-4388-80D8-726C22C0CDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{589D2860-2FF7-4388-80D8-726C22C0CDAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B22288-4498-459F-B331-A7A3AB1747FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B22288-4498-459F-B331-A7A3AB1747FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B22288-4498-459F-B331-A7A3AB1747FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B22288-4498-459F-B331-A7A3AB1747FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0DACC05-D72F-4773-8406-0DABD4C282B0}
+	EndGlobalSection
+EndGlobal
