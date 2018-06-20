@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esd.Report.AutoGenerate.For
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esd.Report.AutoGenerate.Service", "Esd.Report.AutoGenerate.Service\Esd.Report.AutoGenerate.Service.csproj", "{37B22288-4498-459F-B331-A7A3AB1747FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4net.test", "Log4net.test\Log4net.test.csproj", "{036EDFB4-C43B-41EF-89B6-FD8015EDB820}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{37B22288-4498-459F-B331-A7A3AB1747FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37B22288-4498-459F-B331-A7A3AB1747FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37B22288-4498-459F-B331-A7A3AB1747FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{036EDFB4-C43B-41EF-89B6-FD8015EDB820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{036EDFB4-C43B-41EF-89B6-FD8015EDB820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{036EDFB4-C43B-41EF-89B6-FD8015EDB820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{036EDFB4-C43B-41EF-89B6-FD8015EDB820}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

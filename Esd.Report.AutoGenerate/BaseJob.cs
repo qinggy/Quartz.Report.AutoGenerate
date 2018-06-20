@@ -25,3 +25,4 @@ namespace Esd.Report.AutoGenerate
         public abstract void ExecuteJob(IJobExecutionContext context);
     }
 }
+ 
