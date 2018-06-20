@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Esd.Report.AutoGenerate.Service;
+using Esd.Report.AutoGenerate.Common;
 using log4net;
 using System;
 using System.IO;

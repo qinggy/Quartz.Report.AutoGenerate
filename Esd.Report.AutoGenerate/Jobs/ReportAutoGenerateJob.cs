@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Esd.Report.AutoGenerate.Service;
+using Esd.Report.AutoGenerate.Common;
+using Esd.Report.AutoGenerate.Common.Service;
 using Newtonsoft.Json;
 using Quartz;
 

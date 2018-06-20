@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Esd.Report.AutoGenerate.Service
+namespace Esd.Report.AutoGenerate.Common
 {
     public class CommHelper
     {

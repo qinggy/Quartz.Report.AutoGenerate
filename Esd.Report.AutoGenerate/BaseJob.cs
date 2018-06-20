@@ -1,4 +1,4 @@
-﻿using Esd.Report.AutoGenerate.Service;
+﻿using Esd.Report.AutoGenerate.Common.Service;
 using Quartz;
 using System;
 using System.Collections.Generic;

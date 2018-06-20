@@ -1,8 +1,7 @@
 ﻿using Autofac;
 using Autofac.Extras.Quartz;
 using Esd.Report.AutoGenerate.Jobs;
-using Esd.Report.AutoGenerate.Service;
-using Esd.Report.AutoGenerate.Service.Model;
+using Esd.Report.AutoGenerate.Common.Model;
 using Newtonsoft.Json;
 using Quartz;
 using Quartz.Spi;
@@ -15,6 +14,7 @@ using System.Reflection;
 using System.Text;
 using Topshelf.Quartz;
 using Topshelf.ServiceConfigurators;
+using Esd.Report.AutoGenerate.Common;
 
 namespace Esd.Report.AutoGenerate
 {
