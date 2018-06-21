@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using Topshelf;
 using Topshelf.Autofac;
+using Topshelf.ServiceConfigurators;
 
 namespace Esd.Report.AutoGenerate
 {
@@ -16,22 +17,25 @@ namespace Esd.Report.AutoGenerate
             HostFactory.Run(config =>
             {
                 config.UseLog4Net();
-                config.Service<ServiceRunner>();
                 config.RunAsLocalSystem();
-                config.UseAutofacContainer(JobService.Container);
+                config.UseAutofacContainer(ServiceRunner.Container);
                 config.EnablePauseAndContinue();
-                config.SetServiceName(JobService.ServiceName);
-                config.SetDisplayName(JobService.DisplayServiceName);
-                config.SetDescription(JobService.ServiceDescription);
+                config.SetServiceName(ServiceRunner.ServiceName);
+                config.SetDisplayName(ServiceRunner.DisplayServiceName);
+                config.SetDescription(ServiceRunner.ServiceDescription);
 
-                config.Service<JobService>(setting =>
+                config.Service<ServiceRunner>(s =>
                 {
-                    JobService.InitSchedule(setting);
-                    setting.ConstructUsingAutofacContainer();
-                    setting.WhenStarted(o => o.Start());
-                    setting.WhenStopped(o => o.Stop());
+                    ServiceRunner.InitSchedule(s);
+                    s.ConstructUsingAutofacContainer();
+                    s.WhenStarted((sr, hct) => sr.Start(hct));
+                    s.WhenStopped((sr, hct) => sr.Stop(hct));
+                    s.WhenContinued((sr, hct) => sr.Continue(hct));
+                    s.WhenPaused((sr, hct) => sr.Pause(hct));
                 });
             });
+
+            Console.ReadLine();
         }
     }
 }

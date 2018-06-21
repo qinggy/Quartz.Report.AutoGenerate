@@ -7,9 +7,14 @@ namespace Esd.Report.AutoGenerate.Common.Service
 {
     public class CommonService : IService
     {
-        public void Init()
+        public void BeforeExecute()
         {
-            CommHelper.AppLogger.Info("Init something ...");
+            CommHelper.AppLogger.Info("Start execute a job ...");
+        }
+
+        public void AfterExecute()
+        {
+            CommHelper.AppLogger.Info("End execute a job ...");
         }
     }
 }

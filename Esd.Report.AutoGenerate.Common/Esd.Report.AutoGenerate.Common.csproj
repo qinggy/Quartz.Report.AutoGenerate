@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="CommHelper.cs" />
     <Compile Include="Services\CommonService.cs" />
     <Compile Include="Database.cs" />

@@ -17,12 +17,11 @@ namespace Esd.Report.AutoGenerate
 
         public void Execute(IJobExecutionContext context)
         {
-            CommonService.Init();
-
+            CommonService.BeforeExecute();
             ExecuteJob(context);
+            CommonService.AfterExecute();
         }
 
         public abstract void ExecuteJob(IJobExecutionContext context);
     }
 }
- 
