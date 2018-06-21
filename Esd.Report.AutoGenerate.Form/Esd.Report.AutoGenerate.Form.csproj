@@ -108,7 +108,7 @@
     <None Include="quartz.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Esd.Report.AutoGenerate.Service\Esd.Report.AutoGenerate.Common.csproj">
+    <ProjectReference Include="..\Esd.Report.AutoGenerate.Common\Esd.Report.AutoGenerate.Common.csproj">
       <Project>{37b22288-4498-459f-b331-a7a3ab1747fa}</Project>
       <Name>Esd.Report.AutoGenerate.Common</Name>
     </ProjectReference>
