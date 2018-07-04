@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
-namespace Esd.Report.AutoGenerate.Common
+namespace Esd.Report.AutoGenerate.Application
 {
     public class EnergyPecDbContext : DbContext
     {

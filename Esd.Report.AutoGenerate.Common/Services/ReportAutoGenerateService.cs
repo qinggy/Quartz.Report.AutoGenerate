@@ -1,10 +1,10 @@
-﻿using Esd.Report.AutoGenerate.Common;
+﻿using Esd.Report.AutoGenerate.Application;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Esd.Report.AutoGenerate.Common.Service
+namespace Esd.Report.AutoGenerate.Application.Service
 {
     public class ReportAutoGenerateService : IService
     {

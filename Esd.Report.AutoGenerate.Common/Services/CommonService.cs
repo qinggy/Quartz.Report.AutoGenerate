@@ -1,20 +1,32 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Quartz;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Esd.Report.AutoGenerate.Common.Service
+namespace Esd.Report.AutoGenerate.Application.Service
 {
     public class CommonService : IService
     {
-        public void BeforeExecute()
+        public bool BeforeExecute(IJobExecutionContext context)
         {
-            CommHelper.AppLogger.Info("Start execute a job ...");
+            //var dataMap = context.JobDetail.JobDataMap;
+            //var jsonJobEntity = dataMap.GetString("JobEntity");
+            //var jobEntity = JsonConvert.DeserializeObject<JobDetail>(jsonJobEntity);
+            CommHelper.AppLogger.Info($"Start execute job ...");
+
+            return true;
         }
 
-        public void AfterExecute()
+        public bool AfterExecute(IJobExecutionContext context)
         {
-            CommHelper.AppLogger.Info("End execute a job ...");
+            //var dataMap = context.JobDetail.JobDataMap;
+            //var jsonJobEntity = dataMap.GetString("JobEntity");
+            //var jobEntity = JsonConvert.DeserializeObject<JobDetail>(jsonJobEntity);
+            CommHelper.AppLogger.Info($"End execute job ...");
+
+            return true;
         }
     }
 }

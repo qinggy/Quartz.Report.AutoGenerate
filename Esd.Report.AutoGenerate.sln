@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esd.Report.AutoGenerate.Form", "Esd.Report.AutoGenerate.Form\Esd.Report.AutoGenerate.Form.csproj", "{589D2860-2FF7-4388-80D8-726C22C0CDAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esd.Report.AutoGenerate.Common", "Esd.Report.AutoGenerate.Common\Esd.Report.AutoGenerate.Common.csproj", "{37B22288-4498-459F-B331-A7A3AB1747FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esd.Report.AutoGenerate.Application", "Esd.Report.AutoGenerate.Common\Esd.Report.AutoGenerate.Application.csproj", "{37B22288-4498-459F-B331-A7A3AB1747FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esd.Report.AutoGenerate.CrystalQuartz", "Esd.Report.AutoGenerate.CrystalQuartz\Esd.Report.AutoGenerate.CrystalQuartz.csproj", "{DCE0D86E-C937-41EB-A930-C26FD7A898AC}"
 EndProject

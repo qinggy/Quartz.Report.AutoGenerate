@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 
-namespace Esd.Report.AutoGenerate.Common
+namespace Esd.Report.AutoGenerate.Application
 {
     public static class SerializeExtension
     {

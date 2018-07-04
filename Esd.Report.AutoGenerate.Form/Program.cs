@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Esd.Report.AutoGenerate.Common;
+using Esd.Report.AutoGenerate.Application;
 using log4net;
 using System;
 using System.IO;
@@ -26,7 +26,7 @@ namespace Esd.Report.AutoGenerate
 
                 config.Service<ServiceRunner>(s =>
                 {
-                    ServiceRunner.InitSchedule(s);
+                    //ServiceRunner.InitSchedule(s);
                     s.ConstructUsingAutofacContainer();
                     s.WhenStarted((sr, hct) => sr.Start(hct));
                     s.WhenStopped((sr, hct) => sr.Stop(hct));

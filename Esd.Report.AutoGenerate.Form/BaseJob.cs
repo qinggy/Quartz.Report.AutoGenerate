@@ -1,4 +1,6 @@
-﻿using Esd.Report.AutoGenerate.Common.Service;
+﻿using Esd.Report.AutoGenerate.Application;
+using Esd.Report.AutoGenerate.Application.Service;
+using Newtonsoft.Json;
 using Quartz;
 using System;
 using System.Collections.Generic;
@@ -10,16 +12,16 @@ namespace Esd.Report.AutoGenerate
     public abstract class BaseJob : IJob
     {
         private readonly CommonService CommonService;
-        protected BaseJob(CommonService _commonService)
+        protected BaseJob()
         {
-            CommonService = _commonService;
+            CommonService = new CommonService();
         }
 
         public void Execute(IJobExecutionContext context)
         {
-            CommonService.BeforeExecute();
-            ExecuteJob(context);
-            CommonService.AfterExecute();
+            if (CommonService.BeforeExecute(context))
+                ExecuteJob(context);
+            CommonService.AfterExecute(context);
         }
 
         public abstract void ExecuteJob(IJobExecutionContext context);
