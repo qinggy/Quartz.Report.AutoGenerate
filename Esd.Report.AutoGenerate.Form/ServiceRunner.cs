@@ -31,7 +31,7 @@ namespace Esd.Report.AutoGenerate
             ServiceDescription = AppSettings.ServiceDescription;
             databaseExpression = DatabaseFile.XmlToObject<DatabaseExpression>();
 
-            InitContainer();
+            //InitContainer();
             CommHelper.AppLogger.Info("初始化Job");
         }
 
@@ -136,33 +136,25 @@ namespace Esd.Report.AutoGenerate
         public void InitSchedule()
         {
             InitQuartzJob();
-
-            try
+            foreach (var jobEntity in JobList)
             {
-                foreach (var jobEntity in JobList)
+                var jobKey = JobKey.Create($"{jobEntity.Name}_{jobEntity.Id.ToString()}_job", AppSettings.JobGroupName);
+                if (!scheduler.CheckExists(jobKey))
                 {
-                    var jobKey = JobKey.Create($"{jobEntity.Name}_{jobEntity.Id.ToString()}_job", AppSettings.JobGroupName);
-                    if (!scheduler.CheckExists(jobKey))
-                    {
-                        var job = JobBuilder.Create<ReportAutoGenerateJob>()
-                            .WithIdentity(jobKey)
-                            .UsingJobData("JobEntity", JsonConvert.SerializeObject(jobEntity))
-                            .Build();
+                    var job = JobBuilder.Create<ReportAutoGenerateJob>()
+                        .WithIdentity(jobKey)
+                        .UsingJobData("JobEntity", JsonConvert.SerializeObject(jobEntity))
+                        .Build();
 
-                        var triggerKey = new TriggerKey($"{jobEntity.Name}_{jobEntity.Id.ToString()}_trigger", AppSettings.JobGroupName);
-                        var trigger = TriggerBuilder.Create()
-                            .WithIdentity(triggerKey)
-                            .StartNow()
-                            .WithCronSchedule(jobEntity.CornLike)
-                            .Build();
+                    var triggerKey = new TriggerKey($"{jobEntity.Name}_{jobEntity.Id.ToString()}_trigger", AppSettings.JobGroupName);
+                    var trigger = TriggerBuilder.Create()
+                        .WithIdentity(triggerKey)
+                        .WithCronSchedule(jobEntity.CornLike)
+                        .Build();
 
-                        scheduler.ScheduleJob(job, trigger);
-                        CommHelper.AppLogger.InfoFormat("任务 {0} 已完成调度设置", jobEntity.Name);
-                    }
+                    scheduler.ScheduleJob(job, trigger);
+                    CommHelper.AppLogger.InfoFormat("任务 {0} 已完成调度设置", jobEntity.Name);
                 }
-            }catch(Exception e)
-            {
-
             }
 
             CommHelper.AppLogger.Info("调度任务 初始化完毕");
