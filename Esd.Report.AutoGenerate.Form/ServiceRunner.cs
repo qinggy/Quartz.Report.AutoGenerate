@@ -16,6 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using Topshelf;
 using Topshelf.Quartz;
 using Topshelf.ServiceConfigurators;
@@ -59,6 +60,9 @@ namespace Esd.Report.AutoGenerate
             var schedulerFactory = new StdSchedulerFactory(properties);
             scheduler = schedulerFactory.GetScheduler();
             InitSchedule();
+            Timer timer = new Timer(state => InitSchedule(), null,
+            int.Parse(AppSettings.GetValue("delayDuration")),
+            int.Parse(AppSettings.GetValue("scanDuration")));
         }
 
         public bool Start(HostControl hostControl)
@@ -138,7 +142,7 @@ namespace Esd.Report.AutoGenerate
             InitQuartzJob();
             foreach (var jobEntity in JobList)
             {
-                var jobKey = JobKey.Create($"{jobEntity.Name}_{jobEntity.Id.ToString()}_job", AppSettings.JobGroupName);
+                var jobKey = JobKey.Create($"任务：{jobEntity.Name}({jobEntity.Id.ToString()})", AppSettings.JobGroupName);
                 if (!scheduler.CheckExists(jobKey))
                 {
                     var job = JobBuilder.Create<ReportAutoGenerateJob>()
@@ -146,7 +150,7 @@ namespace Esd.Report.AutoGenerate
                         .UsingJobData("JobEntity", JsonConvert.SerializeObject(jobEntity))
                         .Build();
 
-                    var triggerKey = new TriggerKey($"{jobEntity.Name}_{jobEntity.Id.ToString()}_trigger", AppSettings.JobGroupName);
+                    var triggerKey = new TriggerKey($"触发器：{jobEntity.Name}", AppSettings.JobGroupName);
                     var trigger = TriggerBuilder.Create()
                         .WithIdentity(triggerKey)
                         .WithCronSchedule(jobEntity.CornLike)
@@ -157,7 +161,7 @@ namespace Esd.Report.AutoGenerate
                 }
             }
 
-            CommHelper.AppLogger.Info("调度任务 初始化完毕");
+            CommHelper.AppLogger.Info("调度任务初始化完毕");
         }
 
         private static void InitContainer()

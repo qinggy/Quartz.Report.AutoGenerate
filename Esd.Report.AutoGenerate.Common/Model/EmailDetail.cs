@@ -19,5 +19,6 @@ namespace Esd.Report.AutoGenerate.Application
         public Guid CompanyId { get; set; }
         public Guid ReportId { get; set; }
         public bool IsDefault { get; set; }
+        public string Attachment { get; set; }
     }
 }

@@ -52,5 +52,9 @@ namespace Esd.Report.AutoGenerate.Service
             get { return "主服务定时刷新Job清单作业处理"; }
         }
 
+        public static string GetValue(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
+        }
     }
 }
